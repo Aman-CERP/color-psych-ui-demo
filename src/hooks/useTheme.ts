@@ -12,7 +12,8 @@ export function useTheme(initialPalette: PaletteKey = 'calm') {
 
   const [currentPaletteKey, setCurrentPaletteKey] = useState<PaletteKey>(() => {
     const saved = readString('palette') as PaletteKey | null;
-    return saved && palettes[saved] ? saved : initialPalette;
+    // Object.hasOwn (not `in`/truthiness) so inherited keys like "__proto__" are rejected.
+    return saved && Object.hasOwn(palettes, saved) ? saved : initialPalette;
   });
 
   const applyTheme = useCallback((dark: boolean, paletteKey: PaletteKey) => {

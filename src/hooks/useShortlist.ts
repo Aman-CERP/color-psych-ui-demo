@@ -13,7 +13,7 @@ function sanitize(raw: unknown): PaletteKey[] {
   const seen = new Set<string>();
   const clean: PaletteKey[] = [];
   for (const k of raw) {
-    if (typeof k === 'string' && k in palettes && !seen.has(k)) {
+    if (typeof k === 'string' && Object.hasOwn(palettes, k) && !seen.has(k)) {
       seen.add(k);
       clean.push(k as PaletteKey);
       if (clean.length >= MAX_SHORTLIST) break;
