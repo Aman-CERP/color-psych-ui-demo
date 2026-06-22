@@ -121,16 +121,19 @@ for (const palette of Object.values(palettes)) {
     const v = palette[mode];
     const bg = v['--bg'];
     const surface = v['--surface'];
+    const surface2 = v['--surface-2'];
     const accent = v['--accent'];
+    // All three surfaces text can actually sit on (cards, chips, active pills, hovers).
+    const textBgs = [bg, surface, surface2].filter(Boolean);
 
-    // --text-muted: keep legible on bg AND surface, hue preserved.
+    // --text-muted: keep legible on every surface it renders on, hue preserved.
     if (v['--text-muted']) {
-      const fixed = adjustLightnessForContrast(v['--text-muted'], [bg, surface]);
+      const fixed = adjustLightnessForContrast(v['--text-muted'], textBgs);
       if (fixed !== v['--text-muted']) { v['--text-muted'] = fixed; mutedFixes++; }
     }
 
-    // --accent-text: derived legible-on-surface variant of the brand accent.
-    const accentText = adjustLightnessForContrast(accent, [bg, surface]);
+    // --accent-text: derived legible variant of the brand accent for accent-colored text.
+    const accentText = adjustLightnessForContrast(accent, textBgs);
     if (v['--accent-text'] !== accentText) { v['--accent-text'] = accentText; accentTextAdded++; }
 
     // --accent-foreground: legible text ON the accent button.

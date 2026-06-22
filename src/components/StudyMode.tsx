@@ -9,36 +9,24 @@ interface StudyModeProps {
   onApply: (key: PaletteKey) => void;
 }
 
-const APPEARANCES = 3; // each candidate is shown ~3 times for a meaningful ranking
-
 /**
- * Build a balanced set of pairings: every candidate appears ~APPEARANCES times
- * against a different palette, so the final win-count is an actual ranking rather
- * than the artefact of a few unrelated random matchups.
+ * Round-robin: every candidate is compared head-to-head with every other exactly
+ * once, so each appears the same number of times (pool.length - 1). This is provably
+ * balanced with no self-pairs — the final win-count is a real ranking, not an artefact
+ * of which random matchups happened to come up. Pair order and left/right side are
+ * shuffled so the session doesn't feel deterministic.
  */
 function buildRounds(pool: PaletteKey[]): Array<[PaletteKey, PaletteKey]> {
   if (pool.length < 2) return [];
-  const bag: PaletteKey[] = [];
-  for (let i = 0; i < APPEARANCES; i++) bag.push(...pool);
-  for (let i = bag.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [bag[i], bag[j]] = [bag[j], bag[i]];
+  const pairs: Array<[PaletteKey, PaletteKey]> = [];
+  for (let i = 0; i < pool.length; i++) {
+    for (let j = i + 1; j < pool.length; j++) pairs.push([pool[i], pool[j]]);
   }
-  const rounds: Array<[PaletteKey, PaletteKey]> = [];
-  for (let i = 0; i + 1 < bag.length; i += 2) {
-    let b = bag[i + 1];
-    if (bag[i] === b) {
-      for (let j = i + 2; j < bag.length; j++) {
-        if (bag[j] !== bag[i]) {
-          [bag[i + 1], bag[j]] = [bag[j], bag[i + 1]];
-          b = bag[i + 1];
-          break;
-        }
-      }
-    }
-    if (bag[i] !== b) rounds.push([bag[i], b]);
+  for (let i = pairs.length - 1; i > 0; i--) {
+    const k = Math.floor(Math.random() * (i + 1));
+    [pairs[i], pairs[k]] = [pairs[k], pairs[i]];
   }
-  return rounds;
+  return pairs.map(([a, b]) => (Math.random() < 0.5 ? [a, b] : [b, a]));
 }
 
 function poolFor(shortlist: PaletteKey[]): PaletteKey[] {
@@ -86,7 +74,7 @@ export function StudyMode({ shortlist, onApply }: StudyModeProps) {
         </div>
         <p className="text-sm text-[var(--text-muted)] mb-4">
           A balanced preference tournament{shortlist.length >= 2 ? ' across your shortlist' : ' across the top-rated palettes'}.
-          Each palette is shown about {APPEARANCES} times against others, then ranked by your choices.
+          Each palette is compared head-to-head with every other once, then ranked by your choices.
         </p>
         <button onClick={startStudy} className="btn btn-primary text-sm">
           Start Study Session

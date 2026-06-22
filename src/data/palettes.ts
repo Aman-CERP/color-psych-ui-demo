@@ -10,7 +10,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#f1f5f9",
       '--text': "#0f172a",
-      '--text-muted': "#627288",
+      '--text-muted': "#607085",
       '--border': "#e2e8f0",
       '--accent': "#0f766e",
       '--accent-hover': "#115e59",
@@ -43,7 +43,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#fef9c3",
       '--text': "#1c1917",
-      '--text-muted': "#78716c",
+      '--text-muted': "#756e6a",
       '--border': "#e7e5e4",
       '--accent': "#b45309",
       '--accent-hover': "#92400e",
@@ -57,7 +57,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#292524",
       '--surface-2': "#44403c",
       '--text': "#f5f5f4",
-      '--text-muted': "#a8a29e",
+      '--text-muted': "#b2aca9",
       '--border': "#57534e",
       '--accent': "#f59e0b",
       '--accent-hover': "#d97706",
@@ -76,7 +76,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#dcfce7",
       '--text': "#052e16",
-      '--text-muted': "#008426",
+      '--text-muted': "#007f25",
       '--border': "#bbf7d0",
       '--accent': "#166534",
       '--accent-hover': "#14532d",
@@ -97,7 +97,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--accent-light': "#86efac",
       '--accent-foreground': "#052e16",
       '--accent-rgb': "74, 222, 128",
-      '--accent-text': "#4ade80"
+      '--accent-text': "#75e69e"
     }
   },
   lumina: {
@@ -130,7 +130,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--accent-light': "#c4b5fd",
       '--accent-foreground': "#1e1135",
       '--accent-rgb': "167, 139, 250",
-      '--accent-text': "#a78bfa"
+      '--accent-text': "#b29afb"
     }
   },
   navy: {
@@ -142,7 +142,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#e8eef4",
       '--text': "#0a1628",
-      '--text-muted': "#5a6f8c",
+      '--text-muted': "#566a86",
       '--border': "#c8d6e5",
       '--accent': "#1e3a5f",
       '--accent-hover': "#152a45",
@@ -156,14 +156,14 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#152a45",
       '--surface-2': "#1e3a5f",
       '--text': "#e8eef4",
-      '--text-muted': "#8ba4c4",
+      '--text-muted': "#8ea7c6",
       '--border': "#2d5a8e",
       '--accent': "#4a7ab5",
       '--accent-hover': "#3a6a9f",
       '--accent-light': "#6a9ad5",
       '--accent-foreground': "#000000",
       '--accent-rgb': "74, 122, 181",
-      '--accent-text': "#6e95c4"
+      '--accent-text': "#88a7ce"
     }
   },
   slate: {
@@ -175,7 +175,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#f1f5f9",
       '--text': "#1e293b",
-      '--text-muted': "#627288",
+      '--text-muted': "#607085",
       '--border': "#cbd5e1",
       '--accent': "#475569",
       '--accent-hover': "#334155",
@@ -189,14 +189,14 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#1e293b",
       '--surface-2': "#334155",
       '--text': "#f1f5f9",
-      '--text-muted': "#94a3b8",
+      '--text-muted': "#a0aec0",
       '--border': "#475569",
       '--accent': "#94a3b8",
       '--accent-hover': "#cbd5e1",
       '--accent-light': "#cbd5e1",
       '--accent-foreground': "#0f172a",
       '--accent-rgb': "148, 163, 184",
-      '--accent-text': "#94a3b8"
+      '--accent-text': "#a0aec0"
     }
   },
   charcoal: {
@@ -208,28 +208,28 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#f5f5f4",
       '--text': "#1c1917",
-      '--text-muted': "#78716c",
+      '--text-muted': "#756e6a",
       '--border': "#d6d3d1",
       '--accent': "#92700c",
       '--accent-hover': "#78590a",
       '--accent-light': "#b8860b",
       '--accent-foreground': "#ffffff",
       '--accent-rgb': "146, 112, 12",
-      '--accent-text': "#8d6c0c"
+      '--accent-text': "#89690b"
     },
     dark: {
       '--bg': "#1c1917",
       '--surface': "#292524",
       '--surface-2': "#44403c",
       '--text': "#fafaf9",
-      '--text-muted': "#a8a29e",
+      '--text-muted': "#b2aca9",
       '--border': "#57534e",
       '--accent': "#d4a012",
       '--accent-hover': "#b8860b",
       '--accent-light': "#f0c040",
       '--accent-foreground': "#1c1917",
       '--accent-rgb': "212, 160, 18",
-      '--accent-text': "#d4a012"
+      '--accent-text': "#dda713"
     }
   },
   terracotta: {
@@ -248,21 +248,21 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--accent-light': "#ea580c",
       '--accent-foreground': "#ffffff",
       '--accent-rgb': "194, 65, 12",
-      '--accent-text': "#c2410c"
+      '--accent-text': "#bd3f0c"
     },
     dark: {
       '--bg': "#431407",
       '--surface': "#7c2d12",
       '--surface-2': "#9a3412",
       '--text': "#fef7f0",
-      '--text-muted': "#fdba74",
+      '--text-muted': "#fdc183",
       '--border': "#c2410c",
       '--accent': "#fb923c",
       '--accent-hover': "#f97316",
       '--accent-light': "#fdba74",
       '--accent-foreground': "#431407",
       '--accent-rgb': "251, 146, 60",
-      '--accent-text': "#fca055"
+      '--accent-text': "#fdc191"
     }
   },
   honey: {
@@ -274,28 +274,28 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#ccfbf1",
       '--text': "#134e4a",
-      '--text-muted': "#00816b",
+      '--text-muted': "#007c67",
       '--border': "#99f6e4",
       '--accent': "#d4a012",
       '--accent-hover': "#b8860b",
       '--accent-light': "#f0c040",
       '--accent-foreground': "#0f172a",
       '--accent-rgb': "212, 160, 18",
-      '--accent-text': "#8d6b0c"
+      '--accent-text': "#89670c"
     },
     dark: {
       '--bg': "#134e4a",
       '--surface': "#115e59",
       '--surface-2': "#0f766e",
       '--text': "#f0fdfa",
-      '--text-muted': "#5eead4",
+      '--text-muted': "#bdf6ed",
       '--border': "#14b8a6",
       '--accent': "#f0c040",
       '--accent-hover': "#d4a012",
       '--accent-light': "#fde68a",
       '--accent-foreground': "#134e4a",
       '--accent-rgb': "240, 192, 64",
-      '--accent-text': "#f1c349"
+      '--accent-text': "#faeac0"
     }
   },
   cloud: {
@@ -307,28 +307,28 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#ede9e0",
       '--text': "#3d3a33",
-      '--text-muted': "#736d60",
+      '--text-muted': "#6d685b",
       '--border': "#d4cfc4",
       '--accent': "#6b7c93",
       '--accent-hover': "#556378",
       '--accent-light': "#8b9dc3",
       '--accent-foreground': "#000000",
       '--accent-rgb': "107, 124, 147",
-      '--accent-text': "#607084"
+      '--accent-text': "#5a687b"
     },
     dark: {
       '--bg': "#2a2820",
       '--surface': "#3d3a33",
       '--surface-2': "#4a4740",
       '--text': "#f7f5f0",
-      '--text-muted': "#b8b2a6",
+      '--text-muted': "#bdb7ac",
       '--border': "#6b665c",
       '--accent': "#8b9dc3",
       '--accent-hover': "#6b7c93",
       '--accent-light': "#a8b8d4",
       '--accent-foreground': "#2a2820",
       '--accent-rgb': "139, 157, 195",
-      '--accent-text': "#95a6c8"
+      '--accent-text': "#a9b7d3"
     }
   },
   transformative: {
@@ -340,7 +340,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#e0f2f1",
       '--text': "#0a3d3d",
-      '--text-muted': "#477979",
+      '--text-muted': "#437373",
       '--border': "#b2dfdb",
       '--accent': "#0d6e6e",
       '--accent-hover': "#0a5555",
@@ -354,14 +354,14 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#0d4a4a",
       '--surface-2': "#0d6e6e",
       '--text': "#e0f2f1",
-      '--text-muted': "#80cbc4",
+      '--text-muted': "#c5e7e4",
       '--border': "#14a3a3",
       '--accent': "#4dd0e1",
       '--accent-hover': "#26c6da",
       '--accent-light': "#80deea",
       '--accent-foreground': "#0a2e2e",
       '--accent-rgb': "77, 208, 225",
-      '--accent-text': "#4dd0e1"
+      '--accent-text': "#b1ebf2"
     }
   },
   twilight: {
@@ -373,7 +373,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#ede9f6",
       '--text': "#1e1b4b",
-      '--text-muted': "#6366a0",
+      '--text-muted': "#60639e",
       '--border': "#c7c3e8",
       '--accent': "#2c2a72",
       '--accent-hover': "#1e1b4b",
@@ -394,7 +394,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--accent-light': "#a99af0",
       '--accent-foreground': "#12101f",
       '--accent-rgb': "140, 122, 230",
-      '--accent-text': "#8c7ae6"
+      '--accent-text': "#a294eb"
     }
   },
   oatmeal: {
@@ -406,7 +406,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#faf7f2",
       '--surface-2': "#e8e0d4",
       '--text': "#2b2b2b",
-      '--text-muted': "#6b6560",
+      '--text-muted': "#68625e",
       '--border': "#d8d1c7",
       '--accent': "#2b2b2b",
       '--accent-hover': "#1a1a1a",
@@ -439,7 +439,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#e8ebe0",
       '--text': "#2c3326",
-      '--text-muted': "#627353",
+      '--text-muted': "#5d6d4f",
       '--border': "#c5cdb8",
       '--accent': "#5a6b4a",
       '--accent-hover': "#4a5b3a",
@@ -453,14 +453,14 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#2c3326",
       '--surface-2': "#3d4a35",
       '--text': "#e8ebe0",
-      '--text-muted': "#9aab8a",
+      '--text-muted': "#acba9f",
       '--border': "#5a6b4a",
       '--accent': "#9aab8a",
       '--accent-hover': "#8a9b7a",
       '--accent-light': "#b0c0a0",
       '--accent-foreground': "#1a2018",
       '--accent-rgb': "154, 171, 138",
-      '--accent-text': "#9aab8a"
+      '--accent-text': "#acba9f"
     }
   },
   arctic: {
@@ -472,28 +472,28 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#e8f0f6",
       '--text': "#1a2e3b",
-      '--text-muted': "#517183",
+      '--text-muted': "#4f6e80",
       '--border': "#c8dae6",
       '--accent': "#3a7ca5",
       '--accent-hover': "#2a6c95",
       '--accent-light': "#5a9cc5",
       '--accent-foreground': "#ffffff",
       '--accent-rgb': "58, 124, 165",
-      '--accent-text': "#36739a"
+      '--accent-text': "#357196"
     },
     dark: {
       '--bg': "#0f1a24",
       '--surface': "#1a2e3b",
       '--surface-2': "#2a4a5b",
       '--text': "#e8f0f6",
-      '--text-muted': "#8aacbe",
+      '--text-muted': "#9ebac9",
       '--border': "#3a7ca5",
       '--accent': "#6ab4d4",
       '--accent-hover': "#5aa4c4",
       '--accent-light': "#8ac8e4",
       '--accent-foreground': "#0f1a24",
       '--accent-rgb': "106, 180, 212",
-      '--accent-text': "#6ab4d4"
+      '--accent-text': "#7ebeda"
     }
   },
   evergreen: {
@@ -559,7 +559,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--accent-light': "#b884b0",
       '--accent-foreground': "#ffffff",
       '--accent-rgb': "138, 79, 130",
-      '--accent-text': "#ab6ca2"
+      '--accent-text': "#b075a8"
     }
   },
   brass: {
@@ -625,7 +625,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--accent-light': "#c8616d",
       '--accent-foreground': "#ffffff",
       '--accent-rgb': "168, 58, 72",
-      '--accent-text': "#c8616e"
+      '--accent-text': "#cb6975"
     }
   },
   copper: {
@@ -637,28 +637,28 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#f0e8dc",
       '--text': "#3d2e1f",
-      '--text-muted': "#826a4d",
+      '--text-muted': "#786247",
       '--border': "#d4c4a8",
       '--accent': "#b87333",
       '--accent-hover': "#9a5f28",
       '--accent-light': "#d4944a",
       '--accent-foreground': "#0f172a",
       '--accent-rgb': "184, 115, 51",
-      '--accent-text': "#9c622b"
+      '--accent-text': "#905a28"
     },
     dark: {
       '--bg': "#2a1f14",
       '--surface': "#3d2e1f",
       '--surface-2': "#5a4530",
       '--text': "#f0e8dc",
-      '--text-muted': "#c4a882",
+      '--text-muted': "#ceb697",
       '--border': "#8b7355",
       '--accent': "#d4944a",
       '--accent-hover': "#b87333",
       '--accent-light': "#e8b06a",
       '--accent-foreground': "#2a1f14",
       '--accent-rgb': "212, 148, 74",
-      '--accent-text': "#d4944a"
+      '--accent-text': "#e0b17b"
     }
   },
   apricot: {
@@ -670,28 +670,28 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#fde8d8",
       '--text': "#4a2c1a",
-      '--text-muted': "#946544",
+      '--text-muted': "#8d6041",
       '--border': "#f0c8a8",
       '--accent': "#d4845a",
       '--accent-hover': "#b86e44",
       '--accent-light': "#e8a87c",
       '--accent-foreground': "#0f172a",
       '--accent-rgb': "212, 132, 90",
-      '--accent-text': "#ab582d"
+      '--accent-text': "#a3542a"
     },
     dark: {
       '--bg': "#3a2218",
       '--surface': "#4a2c1a",
       '--surface-2': "#6a4030",
       '--text': "#fef6f0",
-      '--text-muted': "#d4a882",
+      '--text-muted': "#dbb595",
       '--border': "#9a6b4a",
       '--accent': "#e8a87c",
       '--accent-hover': "#d4845a",
       '--accent-light': "#f0c0a0",
       '--accent-foreground': "#3a2218",
       '--accent-rgb': "232, 168, 124",
-      '--accent-text': "#e8a87c"
+      '--accent-text': "#eaae85"
     }
   },
   sandstone: {
@@ -703,28 +703,28 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#ebe4d8",
       '--text': "#3d3830",
-      '--text-muted': "#736a60",
+      '--text-muted': "#6b6259",
       '--border': "#d4c8b8",
       '--accent': "#a08060",
       '--accent-hover': "#886848",
       '--accent-light': "#b89878",
       '--accent-foreground': "#0f172a",
       '--accent-rgb': "160, 128, 96",
-      '--accent-text': "#80674d"
+      '--accent-text': "#7a6149"
     },
     dark: {
       '--bg': "#2a2620",
       '--surface': "#3d3830",
       '--surface-2': "#5a5248",
       '--text': "#f5f0e8",
-      '--text-muted': "#b8a898",
+      '--text-muted': "#d1c7bc",
       '--border': "#8b8278",
       '--accent': "#c4a882",
       '--accent-hover': "#b09872",
       '--accent-light': "#d4b898",
       '--accent-foreground': "#2a2620",
       '--accent-rgb': "196, 168, 130",
-      '--accent-text': "#c4a882"
+      '--accent-text': "#d8c5ac"
     }
   },
   saffron: {
@@ -736,14 +736,14 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#fef3c7",
       '--text': "#451a03",
-      '--text-muted': "#8f6d09",
+      '--text-muted': "#8a6909",
       '--border': "#fde68a",
       '--accent': "#e8841a",
       '--accent-hover': "#c46e0a",
       '--accent-light': "#f0a030",
       '--accent-foreground': "#0f172a",
       '--accent-rgb': "232, 132, 26",
-      '--accent-text': "#aa6011"
+      '--accent-text': "#a05a10"
     },
     dark: {
       '--bg': "#451a03",
@@ -757,7 +757,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--accent-light': "#fbbf24",
       '--accent-foreground': "#451a03",
       '--accent-rgb': "240, 160, 48",
-      '--accent-text': "#f2ab48"
+      '--accent-text': "#f7c98a"
     }
   },
   rosewood: {
@@ -783,14 +783,14 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#3d2020",
       '--surface-2': "#5a3030",
       '--text': "#f0e4e2",
-      '--text-muted': "#c49a9a",
+      '--text-muted': "#c69d9d",
       '--border': "#8b5a5a",
       '--accent': "#c47a7a",
       '--accent-hover': "#b06a6a",
       '--accent-light': "#d49a9a",
       '--accent-foreground': "#2a1414",
       '--accent-rgb': "196, 122, 122",
-      '--accent-text': "#c67e7e"
+      '--accent-text': "#d29a9a"
     }
   },
   heritageblue: {
@@ -809,7 +809,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--accent-light': "#4a90d9",
       '--accent-foreground': "#ffffff",
       '--accent-rgb': "31, 112, 193",
-      '--accent-text': "#1f70c1"
+      '--accent-text': "#1e6bb8"
     },
     dark: {
       '--bg': "#0a1a2e",
@@ -823,7 +823,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--accent-light': "#6ab0e9",
       '--accent-foreground': "#0a1a2e",
       '--accent-rgb': "74, 144, 217",
-      '--accent-text': "#4e93da"
+      '--accent-text': "#70a7e1"
     }
   },
   powderera: {
@@ -835,28 +835,28 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#dceef8",
       '--text': "#1a3a52",
-      '--text-muted': "#427298",
+      '--text-muted': "#3f6d91",
       '--border': "#b0d4ec",
       '--accent': "#5a9fd4",
       '--accent-hover': "#4088c0",
       '--accent-light': "#7ab8e4",
       '--accent-foreground': "#0f172a",
       '--accent-rgb': "90, 159, 212",
-      '--accent-text': "#2d74ab"
+      '--accent-text': "#2a6ea3"
     },
     dark: {
       '--bg': "#142838",
       '--surface': "#1e3a52",
       '--surface-2': "#2a5070",
       '--text': "#dceef8",
-      '--text-muted': "#8ac0e4",
+      '--text-muted': "#96c7e7",
       '--border': "#4088c0",
       '--accent': "#7ab8e4",
       '--accent-hover': "#5a9fd4",
       '--accent-light': "#9ad0f4",
       '--accent-foreground': "#142838",
       '--accent-rgb': "122, 184, 228",
-      '--accent-text': "#7ab8e4"
+      '--accent-text': "#93c6e9"
     }
   },
   modernist: {
@@ -889,7 +889,7 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--accent-light': "#7aaad0",
       '--accent-foreground': "#0f1a28",
       '--accent-rgb': "90, 138, 184",
-      '--accent-text': "#6894be"
+      '--accent-text': "#81a6c9"
     }
   },
   huntergreen: {
@@ -915,14 +915,14 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#1a2e1a",
       '--surface-2': "#2a4a2f",
       '--text': "#e4ebe0",
-      '--text-muted': "#8ab08a",
+      '--text-muted': "#99ba99",
       '--border': "#355e3b",
       '--accent': "#5a8a60",
       '--accent-hover': "#4a7a50",
       '--accent-light': "#7aaa80",
       '--accent-foreground': "#000000",
       '--accent-rgb': "90, 138, 96",
-      '--accent-text': "#6a9e70"
+      '--accent-text': "#95ba9a"
     }
   },
   tealoffice: {
@@ -934,28 +934,28 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#e0eaea",
       '--text': "#1a3030",
-      '--text-muted': "#547474",
+      '--text-muted': "#4e6b6b",
       '--border': "#b0cccc",
       '--accent': "#367588",
       '--accent-hover': "#2a5f6e",
       '--accent-light': "#4a8a9a",
       '--accent-foreground': "#ffffff",
       '--accent-rgb': "54, 117, 136",
-      '--accent-text': "#367588"
+      '--accent-text': "#336f81"
     },
     dark: {
       '--bg': "#141f1f",
       '--surface': "#1a3030",
       '--surface-2': "#2a4a4a",
       '--text': "#e0eaea",
-      '--text-muted': "#8ababa",
+      '--text-muted': "#8dbcbc",
       '--border': "#367588",
       '--accent': "#5aaaba",
       '--accent-hover': "#4a9aaa",
       '--accent-light': "#7acad0",
       '--accent-foreground': "#141f1f",
       '--accent-rgb': "90, 170, 186",
-      '--accent-text': "#5aaaba"
+      '--accent-text': "#7ebdc9"
     }
   },
   goldenage: {
@@ -967,14 +967,14 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#fff8d8",
       '--text': "#3a2800",
-      '--text-muted': "#8a7020",
+      '--text-muted': "#866d1f",
       '--border': "#f0e0a0",
       '--accent': "#e8a800",
       '--accent-hover': "#c89000",
       '--accent-light': "#ffc820",
       '--accent-foreground': "#3a2800",
       '--accent-rgb': "232, 168, 0",
-      '--accent-text': "#966d00"
+      '--accent-text': "#916900"
     },
     dark: {
       '--bg': "#2a2000",
@@ -1014,14 +1014,14 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#4a1010",
       '--surface-2': "#6a2020",
       '--text': "#ffe8e8",
-      '--text-muted': "#e08080",
+      '--text-muted': "#e38c8c",
       '--border': "#9a3a3a",
       '--accent': "#e03050",
       '--accent-hover': "#c41230",
       '--accent-light': "#f05070",
       '--accent-foreground': "#000000",
       '--accent-rgb': "224, 48, 80",
-      '--accent-text': "#e76179"
+      '--accent-text': "#ed899b"
     }
   },
   kodakwarm: {
@@ -1033,21 +1033,21 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#fff8c8",
       '--text': "#3a3000",
-      '--text-muted': "#84721a",
+      '--text-muted': "#806e19",
       '--border': "#f0e080",
       '--accent': "#ffc600",
       '--accent-hover': "#d4a800",
       '--accent-light': "#ffd830",
       '--accent-foreground': "#0f172a",
       '--accent-rgb': "255, 198, 0",
-      '--accent-text': "#8f6f00"
+      '--accent-text': "#8a6b00"
     },
     dark: {
       '--bg': "#2a2400",
       '--surface': "#3a3408",
       '--surface-2': "#5a5018",
       '--text': "#fff8c8",
-      '--text-muted': "#d4c060",
+      '--text-muted': "#d6c368",
       '--border': "#8a7820",
       '--accent': "#ffd830",
       '--accent-hover': "#ffc600",
@@ -1066,21 +1066,21 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#ffffff",
       '--surface-2': "#f0e8d0",
       '--text': "#3a3018",
-      '--text-muted': "#7e6c45",
+      '--text-muted': "#776641",
       '--border': "#d8c8a0",
       '--accent': "#c8a030",
       '--accent-hover': "#a88820",
       '--accent-light': "#e0b848",
       '--accent-foreground': "#0f172a",
       '--accent-rgb': "200, 160, 48",
-      '--accent-text': "#866b20"
+      '--accent-text': "#7e651e"
     },
     dark: {
       '--bg': "#2a2210",
       '--surface': "#3a3020",
       '--surface-2': "#5a4830",
       '--text': "#f0e8d0",
-      '--text-muted': "#c8b080",
+      '--text-muted': "#ceb98e",
       '--border': "#8a7850",
       '--accent': "#e0b848",
       '--accent-hover': "#c8a030",
@@ -1113,14 +1113,14 @@ export const palettes: Record<PaletteKey, PaletteDefinition> = {
       '--surface': "#3a1020",
       '--surface-2': "#5a2030",
       '--text': "#f0e0e4",
-      '--text-muted': "#c08090",
+      '--text-muted': "#c78e9c",
       '--border': "#7a4050",
       '--accent': "#b85a68",
       '--accent-hover': "#9a4a55",
       '--accent-light': "#d08090",
       '--accent-foreground': "#000000",
       '--accent-rgb': "184, 90, 104",
-      '--accent-text': "#c16f7c"
+      '--accent-text': "#cd8c96"
     }
   }
 };
