@@ -99,6 +99,19 @@
   background-color: var(--surface-2);
 }
 
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-mt-24 {
+  scroll-margin-top: 6rem;
+}
+
 .color-swatch {
   width: 1.25rem;
   height: 1.25rem;
