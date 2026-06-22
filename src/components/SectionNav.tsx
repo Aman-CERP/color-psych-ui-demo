@@ -1,3 +1,5 @@
+import type { PaletteDefinition } from '../types';
+
 const SECTIONS = [
   { id: 'lab', label: 'Color Lab' },
   { id: 'palettes', label: 'Palettes' },
@@ -6,14 +8,18 @@ const SECTIONS = [
   { id: 'contribute', label: 'Contribute' },
 ] as const;
 
-export function SectionNav() {
+interface SectionNavProps {
+  palette: PaletteDefinition;
+  isDark: boolean;
+}
+
+export function SectionNav({ palette, isDark }: SectionNavProps) {
+  const modeLabel = isDark ? 'Dark' : 'Light';
+
   return (
-    <nav
-      aria-label="Page sections"
-      className="sticky top-20 z-40 glass border-b border-[var(--border)]"
-    >
-      <div className="max-w-7xl mx-auto px-6">
-        <ul className="flex gap-1 overflow-x-auto scrollbar-none py-2.5 -mx-1">
+    <nav aria-label="Page sections" className="border-t border-[var(--border)]">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-4 py-2.5">
+        <ul className="flex gap-1 overflow-x-auto scrollbar-none -mx-1 min-w-0">
           {SECTIONS.map(({ id, label }) => (
             <li key={id} className="shrink-0">
               <a
@@ -25,6 +31,29 @@ export function SectionNav() {
             </li>
           ))}
         </ul>
+
+        <div
+          className="scheme-indicator shrink-0 flex items-center gap-2.5 pl-3 border-l border-[var(--border)]"
+          aria-label={`Active palette: ${palette.name}, ${modeLabel} mode`}
+          title={`${palette.name} · ${modeLabel} mode`}
+        >
+          <div className="flex items-center -space-x-1" aria-hidden>
+            <div
+              className="color-swatch ring-2 ring-[var(--surface)]"
+              style={{ backgroundColor: palette.light['--accent'] }}
+            />
+            <div
+              className="color-swatch ring-2 ring-[var(--surface)]"
+              style={{ backgroundColor: palette.dark['--accent'] }}
+            />
+          </div>
+          <div className="hidden sm:block min-w-0 text-right leading-tight">
+            <div className="text-xs font-medium text-[var(--text)] truncate max-w-[10rem] lg:max-w-[14rem]">
+              {palette.name}
+            </div>
+            <div className="type-caption">{modeLabel} mode</div>
+          </div>
+        </div>
       </div>
     </nav>
   );

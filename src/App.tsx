@@ -15,12 +15,14 @@ import {
   CATEGORY_LABELS,
 } from './data';
 import { useTheme } from './hooks/useTheme';
+import { useLiquidGlass } from './hooks/useLiquidGlass';
 import { useShortlist } from './hooks/useShortlist';
 import { useUserRatings } from './hooks/useUserRatings';
 import { useKeyboardPaletteNav } from './hooks/useKeyboardPaletteNav';
 import { usePaletteFilter } from './hooks/usePaletteFilter';
 import { exportTheme } from './utils/exportTheme';
 
+import { AppChrome } from './components/AppChrome';
 import { Header } from './components/Header';
 import { SectionNav } from './components/SectionNav';
 import { PaletteNavigator } from './components/PaletteNavigator';
@@ -51,6 +53,7 @@ const CATEGORY_GROUPS: Array<{
 
 const App: React.FC = () => {
   const { isDark, setIsDark, toggleTheme, currentPaletteKey, setCurrentPaletteKey, currentPalette } = useTheme();
+  const { isLiquidGlass, toggleLiquidGlass } = useLiquidGlass();
   const { shortlist, toggleShortlist, isShortlisted } = useShortlist();
   const { userRatings, submitRating, getAverages, exportCsv } = useUserRatings();
   const filter = usePaletteFilter(paletteKeys);
@@ -92,6 +95,15 @@ const App: React.FC = () => {
     toggleTheme();
     toast.success(isDark ? 'Light mode activated' : 'Dark mode activated', {
       description: 'Theme preference saved.',
+    });
+  };
+
+  const handleToggleLiquidGlass = () => {
+    toggleLiquidGlass();
+    toast.success(isLiquidGlass ? 'Liquid Glass off' : 'Liquid Glass on', {
+      description: isLiquidGlass
+        ? 'Solid surfaces restored for comparison.'
+        : 'macOS-style translucency, refraction, and specular highlights.',
     });
   };
 
@@ -173,16 +185,20 @@ const App: React.FC = () => {
         Skip to content
       </a>
 
-      <Header
-        currentKey={currentPaletteKey}
-        onSelectPalette={switchPalette}
-        isDark={isDark}
-        onToggleTheme={handleToggleTheme}
-        onExport={handleExport}
-        quickNavKeys={quickNavKeys}
-        allPaletteKeys={paletteKeys}
-      />
-      <SectionNav />
+      <AppChrome>
+        <Header
+          currentKey={currentPaletteKey}
+          onSelectPalette={switchPalette}
+          isDark={isDark}
+          onToggleTheme={handleToggleTheme}
+          isLiquidGlass={isLiquidGlass}
+          onToggleLiquidGlass={handleToggleLiquidGlass}
+          onExport={handleExport}
+          quickNavKeys={quickNavKeys}
+          allPaletteKeys={paletteKeys}
+        />
+        <SectionNav palette={currentPalette} isDark={isDark} />
+      </AppChrome>
 
       <main id="main" className="max-w-7xl mx-auto px-6 pt-10 pb-24">
         <div className="max-w-3xl mb-16">

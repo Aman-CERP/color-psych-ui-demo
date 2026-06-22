@@ -1,4 +1,4 @@
-import { Palette, Sun, Moon } from 'lucide-react';
+import { Palette, Sun, Moon, Droplets } from 'lucide-react';
 import type { PaletteKey } from '../types';
 import { palettes } from '../data';
 import { ExportMenu } from './ExportMenu';
@@ -8,6 +8,8 @@ interface HeaderProps {
   onSelectPalette: (key: PaletteKey) => void;
   isDark: boolean;
   onToggleTheme: () => void;
+  isLiquidGlass: boolean;
+  onToggleLiquidGlass: () => void;
   onExport: (format: 'css' | 'json' | 'tailwind') => void;
   quickNavKeys: PaletteKey[];
   allPaletteKeys: PaletteKey[];
@@ -18,6 +20,8 @@ export function Header({
   onSelectPalette,
   isDark,
   onToggleTheme,
+  isLiquidGlass,
+  onToggleLiquidGlass,
   onExport,
   quickNavKeys,
   allPaletteKeys,
@@ -25,7 +29,7 @@ export function Header({
   const current = palettes[currentKey];
 
   return (
-    <header className="sticky top-0 z-50 glass border-b border-[var(--border)]">
+    <header>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-3">
         <div className="flex items-center gap-3 shrink-0 min-w-0">
           <div className="flex items-center gap-2.5">
@@ -87,6 +91,15 @@ export function Header({
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
+          <button
+            onClick={onToggleLiquidGlass}
+            className="liquid-glass-toggle btn btn-secondary p-2.5 rounded-2xl"
+            aria-pressed={isLiquidGlass}
+            aria-label={isLiquidGlass ? 'Disable Liquid Glass' : 'Enable Liquid Glass'}
+            title={isLiquidGlass ? 'Liquid Glass on' : 'Liquid Glass off'}
+          >
+            <Droplets className="w-4 h-4" />
+          </button>
           <button
             onClick={onToggleTheme}
             className="btn btn-secondary p-2.5 rounded-2xl"
