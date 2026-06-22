@@ -35,6 +35,7 @@ import { FeedbackSection } from './components/FeedbackSection';
 import { StudyMode } from './components/StudyMode';
 import { FeedbackModal } from './components/FeedbackModal';
 import { ComparisonModal } from './components/ComparisonModal';
+import { FloatingRadialMenu } from './components/FloatingRadialMenu';
 
 const BenchmarkChart = lazy(() =>
   import('./components/BenchmarkChart').then((m) => ({ default: m.BenchmarkChart })),
@@ -438,6 +439,17 @@ const App: React.FC = () => {
           />
         )}
       </AnimatePresence>
+
+      <FloatingRadialMenu
+        currentKey={currentPaletteKey}
+        palette={currentPalette}
+        isDark={isDark}
+        isLiquidGlass={isLiquidGlass}
+        quickPaletteKeys={quickNavKeys}
+        onSelectPalette={switchPalette}
+        onToggleTheme={handleToggleTheme}
+        onToggleLiquidGlass={handleToggleLiquidGlass}
+      />
 
       <AnimatePresence>
         {showComparisonModal && (
