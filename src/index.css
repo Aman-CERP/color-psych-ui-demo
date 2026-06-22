@@ -969,6 +969,355 @@ html.liquid-glass .nexus-command {
   }
 }
 
+/* ── Floating shortlist stack (bottom-left) ──────────────────────────────── */
+
+.shortlist-stack-root {
+  position: fixed;
+  left: 1.75rem;
+  bottom: 1.75rem;
+  z-index: 89;
+}
+
+.shortlist-stack-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  border: none;
+  cursor: default;
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.shortlist-stack-trigger {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.shortlist-stack-trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.shortlist-stack-deck {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: 0.4rem;
+  max-height: min(24rem, calc(100vh - 8rem));
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--stack-accent) 35%, var(--border)) transparent;
+}
+
+.shortlist-stack-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 9.5rem;
+  max-width: min(12.5rem, calc(100vw - 4rem));
+  padding: 0.45rem 0.7rem 0.45rem 0.5rem;
+  margin-left: calc(var(--stack-index, 0) * 0.4rem);
+  border-radius: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--stack-accent) 22%, var(--border));
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--stack-accent) 8%, transparent) inset,
+    0 8px 24px -10px rgb(0 0 0 / 0.35);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.shortlist-stack-trigger:hover .shortlist-stack-chip,
+.shortlist-stack-trigger:focus-visible .shortlist-stack-chip {
+  border-color: color-mix(in srgb, var(--stack-accent) 35%, var(--border));
+}
+
+.shortlist-stack-chip.active {
+  border-color: color-mix(in srgb, var(--stack-accent) 50%, var(--border));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--stack-accent) 12%, transparent) inset,
+    0 0 24px -6px color-mix(in srgb, var(--stack-accent) 45%, transparent),
+    0 8px 24px -10px rgb(0 0 0 / 0.35);
+}
+
+.shortlist-stack-chip-colors {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.shortlist-stack-chip-colors .color-swatch {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.shortlist-stack-chip-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text);
+}
+
+.shortlist-stack-badge {
+  position: absolute;
+  top: -0.45rem;
+  left: -0.35rem;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.22rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.5625rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-foreground);
+  background: var(--accent);
+  border: 2px solid var(--surface);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+}
+
+.shortlist-stack-panel {
+  width: min(17.5rem, calc(100vw - 2.5rem));
+  padding: 0.9rem 0.95rem 0.85rem;
+  border-radius: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--stack-accent) 28%, var(--border));
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--stack-accent) 10%, transparent) inset,
+    0 0 36px -10px color-mix(in srgb, var(--stack-accent) 35%, transparent),
+    0 24px 56px -20px rgb(0 0 0 / 0.4);
+  backdrop-filter: blur(28px) saturate(1.6);
+  -webkit-backdrop-filter: blur(28px) saturate(1.6);
+}
+
+.shortlist-stack-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.shortlist-stack-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.shortlist-stack-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.shortlist-stack-count {
+  margin-left: auto;
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 9999px;
+  color: var(--accent-text);
+  background: color-mix(in srgb, var(--stack-accent) 12%, var(--surface-2));
+  border: 1px solid color-mix(in srgb, var(--stack-accent) 25%, var(--border));
+}
+
+.shortlist-stack-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-left: 0.25rem;
+  border-radius: 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--stack-accent) 22%, var(--border));
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.shortlist-stack-close:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.shortlist-stack-close:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.shortlist-stack-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: min(18rem, calc(100vh - 14rem));
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--stack-accent) 35%, var(--border)) transparent;
+}
+
+.shortlist-stack-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--stack-accent) 14%, var(--border));
+  background: color-mix(in srgb, var(--surface-2) 65%, transparent);
+  overflow: hidden;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shortlist-stack-item.active {
+  border-color: color-mix(in srgb, var(--stack-accent) 45%, var(--border));
+  box-shadow: 0 0 20px -6px color-mix(in srgb, var(--stack-accent) 45%, transparent);
+}
+
+.shortlist-stack-item-main {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 1;
+  min-width: 0;
+  padding: 0.45rem 0.5rem;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+}
+
+.shortlist-stack-item-main:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.shortlist-stack-item-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.shortlist-stack-item-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shortlist-stack-item-meta {
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.shortlist-stack-item.active .shortlist-stack-item-meta {
+  color: var(--accent-text);
+}
+
+.shortlist-stack-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.2rem;
+  border: none;
+  border-radius: 0.55rem;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.shortlist-stack-remove:hover {
+  color: var(--text);
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+}
+
+.shortlist-stack-remove:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.shortlist-stack-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid color-mix(in srgb, var(--stack-accent) 14%, var(--border));
+}
+
+.shortlist-stack-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.42rem 0.7rem;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--stack-accent) 30%, var(--border));
+  background: color-mix(in srgb, var(--stack-accent) 10%, var(--surface));
+  color: var(--accent-text);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shortlist-stack-action:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 18px -6px color-mix(in srgb, var(--stack-accent) 45%, transparent);
+}
+
+.shortlist-stack-action--ghost {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.shortlist-stack-action--ghost:hover {
+  color: var(--text);
+}
+
+.shortlist-stack-action:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+html.liquid-glass .shortlist-stack-panel,
+html.liquid-glass .shortlist-stack-chip {
+  background: var(--lg-fill-elevated);
+  border-color: var(--lg-border);
+  box-shadow: var(--lg-shadow);
+}
+
 @media (max-width: 640px) {
   .nexus-root {
     --nexus-trigger: 5rem;
@@ -984,5 +1333,19 @@ html.liquid-glass .nexus-command {
 
   .nexus-reel-item {
     flex-basis: 4.75rem;
+  }
+
+  .shortlist-stack-root {
+    left: 1rem;
+    bottom: 1rem;
+  }
+
+  .shortlist-stack-chip {
+    min-width: 8.5rem;
+    max-width: calc(100vw - 3rem);
+  }
+
+  .shortlist-stack-panel {
+    width: calc(100vw - 2rem);
   }
 }

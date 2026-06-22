@@ -1,6 +1,7 @@
 import { Star } from 'lucide-react';
 import type { PaletteKey } from '../types';
 import { palettes } from '../data';
+import { MAX_SHORTLIST } from '../hooks/useShortlist';
 import { PALETTE_SCORES } from '../data/scores';
 
 interface PaletteGridProps {
@@ -76,7 +77,7 @@ export function PaletteGrid({
                     : 'bg-[var(--surface)] border border-[var(--border)] opacity-70 md:opacity-0 md:group-hover/card:opacity-100 text-[var(--text-muted)]'
                 }`}
                 aria-label={shortlisted ? `Remove ${pal.name} from shortlist` : `Shortlist ${pal.name}`}
-                title={shortlisted ? 'Remove from shortlist' : 'Add to shortlist (max 5)'}
+                title={shortlisted ? 'Remove from shortlist' : `Add to shortlist (max ${MAX_SHORTLIST})`}
               >
                 <Star className={`w-3.5 h-3.5 ${shortlisted ? 'fill-current' : ''}`} />
               </button>

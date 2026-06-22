@@ -30,7 +30,11 @@ describe('sanitizeShortlist', () => {
   });
 
   it(`caps the result at MAX_SHORTLIST (${MAX_SHORTLIST})`, () => {
-    const many = ['calm', 'navy', 'verdant', 'slate', 'honey', 'warm', 'cloud'];
+    const many = [
+      'calm', 'navy', 'verdant', 'slate', 'honey', 'warm', 'cloud',
+      'charcoal', 'terracotta', 'lumina', 'twilight', 'oatmeal', 'sagebrush', 'arctic', 'copper', 'apricot',
+    ];
     expect(sanitizeShortlist(many)).toHaveLength(MAX_SHORTLIST);
+    expect(sanitizeShortlist(many)[MAX_SHORTLIST - 1]).toBe('copper');
   });
 });

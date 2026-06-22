@@ -36,6 +36,7 @@ import { StudyMode } from './components/StudyMode';
 import { FeedbackModal } from './components/FeedbackModal';
 import { ComparisonModal } from './components/ComparisonModal';
 import { FloatingRadialMenu } from './components/FloatingRadialMenu';
+import { FloatingShortlistStack } from './components/FloatingShortlistStack';
 
 const BenchmarkChart = lazy(() =>
   import('./components/BenchmarkChart').then((m) => ({ default: m.BenchmarkChart })),
@@ -55,7 +56,7 @@ const CATEGORY_GROUPS: Array<{
 const App: React.FC = () => {
   const { isDark, setIsDark, toggleTheme, currentPaletteKey, setCurrentPaletteKey, currentPalette } = useTheme();
   const { isLiquidGlass, toggleLiquidGlass } = useLiquidGlass();
-  const { shortlist, toggleShortlist, isShortlisted } = useShortlist();
+  const { shortlist, toggleShortlist, clearShortlist, isShortlisted } = useShortlist();
   const { userRatings, submitRating, getAverages, exportCsv } = useUserRatings();
   const filter = usePaletteFilter(paletteKeys);
 
@@ -439,6 +440,21 @@ const App: React.FC = () => {
           />
         )}
       </AnimatePresence>
+
+      <FloatingShortlistStack
+        shortlist={shortlist}
+        currentKey={currentPaletteKey}
+        palette={currentPalette}
+        isDark={isDark}
+        onSelectPalette={switchPalette}
+        onToggleShortlist={toggleShortlist}
+        onCompare={() => {
+          setCompareA(shortlist[0]);
+          setCompareB(shortlist[1]);
+          setShowComparisonModal(true);
+        }}
+        onClear={clearShortlist}
+      />
 
       <FloatingRadialMenu
         currentKey={currentPaletteKey}
