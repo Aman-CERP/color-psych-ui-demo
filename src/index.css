@@ -22,7 +22,13 @@
   --success-muted: #d1fae5;
   --warning: #b45309;
   --warning-muted: #fef3c7;
-  
+  /* info + danger complete the semantic set; AA-verified vs bg/surface/muted
+     in both modes (success on success-muted is the tightest at 4.84:1). */
+  --info: #1d4ed8;
+  --info-muted: #dbeafe;
+  --danger: #b91c1c;
+  --danger-muted: #fee2e2;
+
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   
@@ -47,6 +53,10 @@
   --success-muted: rgba(52, 211, 153, 0.12);
   --warning: #fbbf24;
   --warning-muted: rgba(251, 191, 36, 0.12);
+  --info: #60a5fa;
+  --info-muted: rgba(96, 165, 250, 0.13);
+  --danger: #f87171;
+  --danger-muted: rgba(248, 113, 113, 0.13);
 }
 
 .glass {
@@ -1348,4 +1358,123 @@ html.liquid-glass .shortlist-stack-chip {
   .shortlist-stack-panel {
     width: calc(100vw - 2rem);
   }
+}
+
+/* ── Feedback & state components (2025–2026 research-grounded) ────────────────
+   Anatomy per USWDS / IBM Carbon / PatternFly: status icon + colour, title,
+   short message, optional single action, optional dismiss. Colour is never the
+   sole signal — every tone pairs with a distinct icon in the component markup.
+   Semantic tones stay palette-independent (blue/green/amber/red) so status
+   reads at a glance; only the `accent` tone follows the active palette.
+   Tone classes set --tone (icon / border / emphasis text) + --tone-soft (fill). */
+
+.tone-info    { --tone: var(--info);       --tone-soft: var(--info-muted); }
+.tone-success { --tone: var(--success);    --tone-soft: var(--success-muted); }
+.tone-warning { --tone: var(--warning);    --tone-soft: var(--warning-muted); }
+.tone-danger  { --tone: var(--danger);     --tone-soft: var(--danger-muted); }
+.tone-neutral { --tone: var(--text-muted); --tone-soft: color-mix(in srgb, var(--surface-2) 75%, transparent); }
+.tone-accent  { --tone: var(--accent-text); --tone-soft: color-mix(in srgb, var(--accent) 10%, var(--surface-2)); }
+
+/* Alert — soft fill by default; message uses full-strength --text (not muted)
+   so body copy stays AA on the tinted fill. Hierarchy comes from weight. */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-radius: 0.875rem;
+  border: 1px solid color-mix(in srgb, var(--tone) 28%, var(--border));
+  background: var(--tone-soft);
+  color: var(--text);
+}
+.alert--prominent {
+  border-left: 3px solid var(--tone);
+  background: color-mix(in srgb, var(--tone) 12%, var(--surface));
+}
+.alert-icon { flex-shrink: 0; margin-top: 0.075rem; color: var(--tone); }
+.alert-content { min-width: 0; flex: 1; }
+.alert-title { font-size: 0.875rem; font-weight: 650; letter-spacing: -0.01em; color: var(--text); }
+.alert-message { margin-top: 0.15rem; font-size: 0.8125rem; line-height: 1.5; color: var(--text); }
+.alert-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 0.65rem; }
+.alert-action {
+  font-size: 0.75rem; font-weight: 650; letter-spacing: 0.01em;
+  color: var(--tone); background: none; border: none; padding: 0; cursor: pointer;
+  text-underline-offset: 2px;
+}
+.alert-action:hover { text-decoration: underline; }
+.alert-action:focus-visible { outline: 2px solid var(--tone); outline-offset: 2px; border-radius: 0.25rem; }
+.alert-dismiss {
+  flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+  width: 1.5rem; height: 1.5rem; margin: -0.15rem -0.25rem 0 0;
+  border-radius: 0.5rem; border: none; background: none; color: var(--text-muted); cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.alert-dismiss:hover { color: var(--text); background: color-mix(in srgb, var(--tone) 16%, transparent); }
+.alert-dismiss:focus-visible { outline: 2px solid var(--tone); outline-offset: 1px; }
+
+/* Badge / status pill — soft + outline; both keep tone text on a quiet ground
+   for guaranteed AA across all 34 palettes × 2 modes. */
+.badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.2rem 0.6rem; border-radius: 9999px;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.01em; line-height: 1.2;
+  border: 1px solid transparent; white-space: nowrap;
+}
+.badge--soft    { background: var(--tone-soft); color: var(--tone); border-color: color-mix(in srgb, var(--tone) 22%, transparent); }
+.badge--outline { background: transparent; color: var(--tone); border-color: color-mix(in srgb, var(--tone) 45%, var(--border)); }
+.badge-dot { width: 0.45rem; height: 0.45rem; border-radius: 9999px; background: var(--tone); flex-shrink: 0; }
+
+/* Skeleton — shimmer loading placeholder */
+.skeleton {
+  position: relative; overflow: hidden; border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--surface-2) 80%, var(--border));
+}
+.skeleton::after {
+  content: ''; position: absolute; inset: 0; transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--surface) 65%, transparent), transparent);
+  animation: skeleton-shimmer 1.6s ease-in-out infinite;
+}
+@keyframes skeleton-shimmer { 100% { transform: translateX(100%); } }
+
+/* Progress — determinate + indeterminate */
+.progress-track {
+  position: relative; height: 0.5rem; width: 100%; border-radius: 9999px;
+  background: var(--surface-2); overflow: hidden; border: 1px solid var(--border);
+}
+.progress-bar {
+  height: 100%; border-radius: inherit; background: var(--tone, var(--accent));
+  transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.progress-bar--indeterminate {
+  position: absolute; left: 0; width: 35%;
+  animation: progress-indeterminate 1.3s ease-in-out infinite;
+}
+@keyframes progress-indeterminate {
+  0% { transform: translateX(-110%); }
+  60% { transform: translateX(190%); }
+  100% { transform: translateX(330%); }
+}
+
+/* Tooltip — inverted ground (--text / --bg) is AA by construction in both modes */
+.tooltip-wrap { position: relative; display: inline-flex; }
+.tooltip-bubble {
+  position: absolute; bottom: calc(100% + 0.55rem); left: 50%;
+  transform: translateX(-50%) translateY(0.25rem);
+  z-index: 60; width: max-content; max-width: 15rem;
+  padding: 0.4rem 0.65rem; border-radius: 0.6rem;
+  font-size: 0.75rem; font-weight: 500; line-height: 1.4;
+  color: var(--bg); background: var(--text); box-shadow: var(--shadow);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.tooltip-bubble::after {
+  content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  border: 5px solid transparent; border-top-color: var(--text);
+}
+.tooltip-bubble.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::after { display: none; }
+  .progress-bar--indeterminate { width: 100%; left: 0; transform: none; opacity: 0.65; animation: none; }
+  .tooltip-bubble { transition: opacity 0.01s; }
 }

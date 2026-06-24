@@ -28,6 +28,7 @@ import { SectionNav } from './components/SectionNav';
 import { PaletteNavigator } from './components/PaletteNavigator';
 import { PaletteGrid } from './components/PaletteGrid';
 import { ColorLab } from './components/ColorLab';
+import { ComponentGallery } from './components/ComponentGallery';
 import { BenchmarkMetrics } from './components/BenchmarkMetrics';
 import { AccessibilityPanel } from './components/AccessibilityPanel';
 import { ResearchPanel } from './components/ResearchPanel';
@@ -241,6 +242,9 @@ const App: React.FC = () => {
               onContextChange={setContextPreset}
               onOpenFeedback={() => setShowFeedbackModal(true)}
             />
+            <div className="mt-10">
+              <ComponentGallery />
+            </div>
           </div>
         </div>
 
