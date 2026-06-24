@@ -3,6 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
+  "description": "Aether Lab — an interactive React + TypeScript demo for testing corporate color psychology, with 34 WCAG-AA-audited palettes, dark/light theming, and a Liquid Glass design system.",
+  "homepage": "https://color-psych-ui.pages.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aman-CERP/color-psych-ui-demo.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
