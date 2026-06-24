@@ -244,7 +244,7 @@ export function ComponentGallery() {
         </Demo>
 
         {/* Badges */}
-        <Demo title="Status badges" hint="Soft, outline, and dot variants across all tones plus the live accent.">
+        <Demo title="Status badges" hint="Soft, outline (neutral or tone-coloured), and dot variants across all tones plus the live accent.">
           <div className="space-y-2.5">
             <div className="flex flex-wrap gap-2">
               {SEMANTIC_TONES.map((t) => (
@@ -262,6 +262,14 @@ export function ComponentGallery() {
                   {t}
                 </Badge>
               ))}
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              {SEMANTIC_TONES.map((t) => (
+                <Badge key={t} tone={t} variant="outline-tone">
+                  {t}
+                </Badge>
+              ))}
+              <span className="type-caption">tone-coloured — AA on neutral surfaces</span>
             </div>
             <div className="flex flex-wrap gap-2">
               <Badge tone="success" dot>

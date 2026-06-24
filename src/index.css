@@ -1439,6 +1439,11 @@ html.liquid-glass .shortlist-stack-chip {
    can't be guaranteed >= 4.5:1 across all 34 palettes. */
 .badge--soft    { background: var(--tone-soft); color: var(--tone); border-color: color-mix(in srgb, var(--tone) 22%, transparent); }
 .badge--outline { background: transparent; color: var(--text); border-color: color-mix(in srgb, var(--tone) 50%, var(--border)); }
+/* outline-tone: tone-coloured label on a transparent ground — visually richer,
+   but tone-on-surface is only AA on neutral / low-saturation surfaces. Prefer
+   `soft` (or `outline`) when guaranteed contrast across all 34 palettes matters.
+   This is the one badge variant the contrast audit cannot guarantee. */
+.badge--outline-tone { background: transparent; color: var(--tone); border-color: color-mix(in srgb, var(--tone) 50%, var(--border)); }
 .badge-dot { width: 0.45rem; height: 0.45rem; border-radius: 9999px; background: var(--tone); flex-shrink: 0; }
 
 /* Skeleton — shimmer loading placeholder */
